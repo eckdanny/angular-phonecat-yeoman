@@ -1,0 +1,20 @@
+{
+  "name": "demoApp",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "v1.2.0-rc.2",
+    "json3": "~3.2.5",
+    "es5-shim": "~2.1.0",
+    "jquery": "~2.0.3",
+    "angular-touch": "~1.2.0-rc.2",
+    "angular-resource": "~1.2.0-rc.2",
+    "angular-cookies": "~1.2.0-rc.2",
+    "angular-sanitize": "~1.2.0-rc.2",
+    "angular-route": "~1.2.0-rc.2",
+    "angular-animate": "~1.2.0-rc.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.0-rc.2",
+    "angular-scenario": "~1.2.0-rc.2"
+  }
+}
