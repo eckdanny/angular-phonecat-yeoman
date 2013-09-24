@@ -11,6 +11,8 @@ angular.module('demoApp')
     $scope.otherNotes = [
       'Disabled CSS watchers for CDT',
       'EditorConfig',
-      'Linting (jsHint & pre-commit)'
+      'Linting (jsHint & pre-commit)',
+      'Continuous Integration'
     ];
+
   }]);
