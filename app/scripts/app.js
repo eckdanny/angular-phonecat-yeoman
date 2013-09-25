@@ -8,7 +8,7 @@ angular.module('demoApp', ['ngRoute', 'phonecatServices', 'phonecatFilters'])
         controller: 'MainCtrl'
       })
       .when('/phones', {
-        templateUrl: 'views/phones.html',
+        templateUrl: 'views/phone-list.html',
         controller: 'PhonesCtrl'
       })
       .when('/phones/:phoneId', {
