@@ -9,10 +9,12 @@ angular.module('demoApp')
     ];
 
     $scope.otherNotes = [
+      'phonecat yeoman-ized',
       'Disabled CSS watchers for CDT',
       'EditorConfig',
-      'Linting (jsHint & pre-commit)',
-      'Continuous Integration'
+      'Linting (jsHint & pre-commit hooks)',
+      'Continuous Integration',
+      'Protractor'
     ];
 
   }]);

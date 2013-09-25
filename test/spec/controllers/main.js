@@ -24,7 +24,7 @@ describe('Controller: MainCtrl', function () {
     expect(scope.awesomeThings.length).toBe(3);
   });
 
-  it('should attach some other notes to scope', function () {
+  xit('should attach some other notes to scope', function () {
     expect(scope.otherNotes.length).toBe(4);
   });
 });

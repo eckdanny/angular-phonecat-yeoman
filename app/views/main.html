@@ -2,19 +2,17 @@
   <h1>'Allo, 'Allo!</h1>
   <p>You now have</p>
   <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
+    <li ng-repeat="thing in awesomeThings">{{thing}}</li>
   </ul>
   <p>installed.</p>
-
   <h3>Enjoy coding! - Yeoman</h3>
   <p>Other notes:</p>
   <ul>
     <li ng-repeat="note in otherNotes">{{note}}</li>
   </ul>
-
   <form>
-    <input type="text" ng-model="secret.text" class="form-control" placeholder="Secret...">
-    <a href="#/phones" ng-if="secret.text == 'password'" class="btn btn-success">Go to another place!</a>
+    <label class="text-muted"><small>ngIf is a new feature in 1.2</small></label>
+    <input type="text" ng-model="secret.text" class="form-control" placeholder="Type 'password'...">
+    <a href="#/phones" ng-if="secret.text == 'password'" class="btn btn-success">Take me to phonecat!</a>
   </form>
-
 </div>
