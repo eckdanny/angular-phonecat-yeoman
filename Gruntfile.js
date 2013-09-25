@@ -320,7 +320,7 @@ module.exports = function (grunt) {
         options: {
           template: '.pre-commit.js'
         },
-        'pre-commit': 'test'
+        'pre-commit': 'jshint'
       }
     }
   });
