@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('demoApp', ['ngRoute', 'phonecatServices', 'phonecatFilters'])
-  .config(['$routeProvider', function ($routeProvider) {
+  .config(['$routeProvider', '$logProvider', function ($routeProvider, $logProvider) {
+    // Routes
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -18,4 +19,9 @@ angular.module('demoApp', ['ngRoute', 'phonecatServices', 'phonecatFilters'])
       .otherwise({
         redirectTo: '/'
       });
+    // Logger
+    $logProvider.debugEnabled(true);
+  }])
+  .run(['$rootScope', '$log', function ($rootScope, $log) {
+    $rootScope.$log = $log;
   }]);
