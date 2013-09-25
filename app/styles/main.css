@@ -5,6 +5,10 @@ body {
   min-width: 360px;
 }
 
+img.yeoman-logo {
+  width: 300px;
+}
+
 ul.phones {
   padding-left: 0;
 }
