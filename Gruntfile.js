@@ -314,8 +314,18 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    githooks: {
+      all: {
+        options: {
+          template: '.pre-commit.js'
+        },
+        'pre-commit': 'test'
+      }
     }
   });
+
+  grunt.loadNpmTasks('grunt-githooks');
 
   grunt.registerTask('server', function (target) {
     if (target === 'dist') {
@@ -357,6 +367,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'jshint',
+    'githooks',
     'test',
     'build'
   ]);
