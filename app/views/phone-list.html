@@ -13,7 +13,7 @@
 </div>
 
 <div class="phones">
-  <div class="media thumbnail" ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+  <div class="media thumbnail phone" ng-repeat="phone in phones | filter:query | orderBy:orderProp">
     <a class="pull-left" href="#/phones/{{phone.id}}">
       <img style="width: 100px;" ng-src="{{phone.imageUrl}}"></a>
     </a>

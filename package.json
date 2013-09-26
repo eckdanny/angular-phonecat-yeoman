@@ -40,7 +40,8 @@
     "karma": "~0.10.2",
     "karma-ng-html2js-preprocessor": "~0.1.0",
     "grunt-githooks": "~0.1.0",
-    "execSync": "~1.0.1-pre"
+    "execSync": "~1.0.1-pre",
+    "protractor": "~0.10.0"
   },
   "engines": {
     "node": ">=0.8.0"

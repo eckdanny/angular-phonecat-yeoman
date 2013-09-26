@@ -3,5 +3,6 @@ dist
 .tmp
 .sass-cache
 .DS_Store
+.espressostorage
 app/bower_components
-*.espressostorage
+selenium/
