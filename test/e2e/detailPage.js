@@ -5,7 +5,7 @@ describe('Details page', function() {
     ptor = protractor.getInstance();
   });
 
-  it('should load at the /phones/:phoneHandle', function () {
+  it('should load at the /phones/:phoneName', function () {
     ptor.get('http://localhost:9000/#/phones/samsung-transform');
     ptor.waitForAngular();
     expect(ptor.getCurrentUrl()).toContain('samsung-transform');
@@ -13,7 +13,7 @@ describe('Details page', function() {
 
   describe('thumbnail viewer', function() {
 
-    it('should change the main image when clicked', function () {
+    it('should update the main image to the one clicked', function () {
       var getMainImg = function () {
         return ptor.findElement(protractor.By.xpath('//img[contains(@class, "phone")]'));
       };

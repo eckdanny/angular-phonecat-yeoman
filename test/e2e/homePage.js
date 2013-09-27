@@ -1,4 +1,4 @@
-describe('homepage', function() {
+describe('Home page', function() {
   var ptor
     , linkBtn
     ;
@@ -15,7 +15,7 @@ describe('homepage', function() {
 
   });
 
-  it('should have an image', function() {
+  it('should have a nice yeoman image', function() {
     var logo = ptor.findElement(protractor.By.className('yeoman-logo'));
     expect(logo.getAttribute('src')).toContain('.png');
   });
@@ -40,7 +40,7 @@ describe('homepage', function() {
     secretInput.sendKeys('password');
     expect(ptor.isElementPresent(getLinkBtn())).toBe(true);
 
-    // Should become absent when adding a single character to invalidate password
+    // Should go away when if valid password is invalidated
     secretInput.sendKeys('X');
     expect(ptor.isElementPresent(getLinkBtn())).toBe(false);
 
