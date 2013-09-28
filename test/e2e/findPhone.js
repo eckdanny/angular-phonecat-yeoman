@@ -16,7 +16,6 @@ describe('List page', function() {
   describe('text filter', function() {
 
     it('should return 5 phones when "samsung" is searched', function() {
-      var numFound;
       query = ptor.findElement(protractor.By.input('query'));
 
       query.clear();
@@ -28,7 +27,6 @@ describe('List page', function() {
     });
 
     it('should return 1 phone when " trans" is appended to search string', function () {
-      var numFound;
       query.sendKeys(' trans');
       // @todo Consider using repeater By locator
       ptor.findElements(protractor.By.className('phone')).then(function (arr) {

@@ -17,7 +17,7 @@ angular.module('demoApp', ['ngRoute', 'phonecatServices', 'phonecatFilters'])
         controller: 'PhoneDetailCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/phones'
       });
     // Logger
     $logProvider.debugEnabled(true);
