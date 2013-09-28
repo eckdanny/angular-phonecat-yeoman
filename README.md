@@ -40,3 +40,5 @@ then kickoff the protractor tests (in seperate terminal):
 ```
 node_modules/.bin/protractor protractor.conf.js
 ```
+
+Enjoy!
