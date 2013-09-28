@@ -79,29 +79,42 @@ describe('PhoneCat App', function() {
   });
 
 
-  // describe('Phone detail view', function() {
+  describe('Phone detail view', function() {
 
-  //   beforeEach(function() {
-  //     browser().navigateTo('../../app/index.html#/phones/nexus-s');
-  //   });
+    beforeEach(function () {
+      ptor.get('http://localhost:9000/#/phones/nexus-s');
+      ptor.waitForAngular();
+    });
 
+    it('should display nesux-s page', function () {
+      expect(ptor.findElement(protractor.By.binding('phone.name')).getText()).toBe('Nexus S');
+    });
 
-  //   it('should display nexus-s page', function() {
-  //     expect(binding('phone.name')).toBe('Nexus S');
-  //   });
+    it('should display the first phone image as the main phone image', function() {
+      expect(ptor.findElement(protractor.By.xpath('//img[contains(@class, "phone")]')).getAttribute('src')).toContain('phones/images/nexus-s.0.jpg');
+    });
 
+    it('should swap main image if a thumbnail image is clicked on', function () {
 
-  //   it('should display the first phone image as the main phone image', function() {
-  //     expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.0.jpg');
-  //   });
+      var getMainImg = function () {
+        return ptor.findElement(protractor.By.xpath('//img[contains(@class, "phone")]'));
+      };
 
+      ptor.findElements(protractor.By.xpath('//ul[contains(@class, "phone-thumbs")]/li/img')).then(function (thumbs) {
+        var i
+          , imgSrc
+          ;
 
-  //   it('should swap main image if a thumbnail image is clicked on', function() {
-  //     element('.phone-thumbs li:nth-child(3) img').click();
-  //     expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.2.jpg');
+        expect(thumbs.length).toBe(4);
 
-  //     element('.phone-thumbs li:nth-child(1) img').click();
-  //     expect(element('img.phone').attr('src')).toBe('img/phones/nexus-s.0.jpg');
-  //   });
-  // });
+        for (i = 0; i < thumbs.length; i++) {
+          thumbs[i].click();
+          expect(getMainImg().getAttribute('src')).toContain('nexus-s.' + i + '.jpg');
+        };
+      });
+
+    });
+
+  });
+
 });
