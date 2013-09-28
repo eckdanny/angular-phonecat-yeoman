@@ -1,10 +1,8 @@
-'use strict';
+'use strict'; /* global protractor: false */
 
 describe('PhoneCat App', function() {
 
-  var ptor
-    , query
-    ;
+  var ptor;
 
   beforeEach(function () {
     ptor = protractor.getInstance();
@@ -17,6 +15,8 @@ describe('PhoneCat App', function() {
   });
 
   describe('Phone list view', function() {
+
+    var query;
 
     beforeEach(function() {
       ptor.get('http://localhost:9000/#/phones');
@@ -43,8 +43,8 @@ describe('PhoneCat App', function() {
     });
 
     it('should be possible to control phone order via the drop down select box', function() {
-      var i
-        , names = ['Motorola XOOM\u2122 with Wi-Fi',
+      var i,
+          names = ['Motorola XOOM\u2122 with Wi-Fi',
                    'MOTOROLA XOOM\u2122'];
 
       query.clear();
@@ -52,14 +52,15 @@ describe('PhoneCat App', function() {
 
       ptor.findElements(protractor.By.binding('{{phone.name}}')).then(function (arr) {
 
+        var checkName = function (i) {
+          var name = names[i];
+          arr[i].getText().then(function (text) {
+            expect(text).toEqual(name);
+          });
+        };
+
         for (i = 0; i < arr.length; i++) {
-          // Use IIEF to capture name (names[i]) in closure
-          (function () {
-            var name = names[i];
-            arr[i].getText().then(function (text) {
-              expect(text).toEqual(name);
-            });
-          })();
+          checkName(i);
         }
 
       });
@@ -78,7 +79,7 @@ describe('PhoneCat App', function() {
     });
   });
 
-
+  // @todo clean this up... got lazy!
   describe('Phone detail view', function() {
 
     beforeEach(function () {
@@ -101,16 +102,14 @@ describe('PhoneCat App', function() {
       };
 
       ptor.findElements(protractor.By.xpath('//ul[contains(@class, "phone-thumbs")]/li/img')).then(function (thumbs) {
-        var i
-          , imgSrc
-          ;
+        var i;
 
         expect(thumbs.length).toBe(4);
 
         for (i = 0; i < thumbs.length; i++) {
           thumbs[i].click();
           expect(getMainImg().getAttribute('src')).toContain('nexus-s.' + i + '.jpg');
-        };
+        }
       });
 
     });
