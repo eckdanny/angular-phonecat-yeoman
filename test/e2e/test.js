@@ -52,21 +52,16 @@ describe('PhoneCat App', function() {
 
       ptor.findElements(protractor.By.binding('{{phone.name}}')).then(function (arr) {
 
-        // @todo fix! Index i 2 at eval time in then()!
-        // for (i = 0; i < arr.length; i++) {
-        //   arr[i].getText().then(function (text) {
-        //     console.log(i, names[i], text); // 2, undefined, <name>
-        //     expect(text).toEqual(names[i]);
-        //   });
-        // }
+        for (i = 0; i < arr.length; i++) {
+          // Use IIEF to capture name (names[i]) in closure
+          (function () {
+            var name = names[i];
+            arr[i].getText().then(function (text) {
+              expect(text).toEqual(name);
+            });
+          })();
+        }
 
-        arr[0].getText().then(function (text) {
-          expect(text).toEqual(names[0]);
-        });
-
-        arr[1].getText().then(function (text) {
-          expect(text).toEqual(names[1]);
-        });
       });
 
     });
